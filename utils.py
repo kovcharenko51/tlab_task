@@ -32,7 +32,7 @@ def set_seed(
     seed: int, env: Optional[gym.Env] = None, deterministic_torch: bool = False
 ):
     if env is not None:
-        env.reset(seed)
+        env.seed(seed)
         env.action_space.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)

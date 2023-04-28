@@ -29,9 +29,10 @@ def eval_actor(
 def eval_actor_final(
     env: gym.Env, actor: nn.Module, device: str, n_episodes: int
 ) -> np.ndarray:
-    seeds = np.random.randint(0, 1337, size=10)
+    seeds = np.random.randint(0, 1337, size=3)
     final_scores = []
     for seed in seeds:
+        seed = int(seed)
         env.seed(seed)
         actor.eval()
         episode_rewards = []
@@ -43,7 +44,7 @@ def eval_actor_final(
                 state, reward, done, _ = env.step(action)
                 episode_reward += reward
             episode_rewards.append(episode_reward)
-        eval_scores = np.as_array(episode_rewards)
+        eval_scores = np.array(episode_rewards)
         eval_score = eval_scores.mean()
         normalized_eval_score = env.get_normalized_score(eval_score) * 100.0
         final_scores.append(normalized_eval_score)

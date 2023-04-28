@@ -111,4 +111,4 @@ def wrap_env(
     env = gym.wrappers.TransformObservation(env, normalize_state)
     if reward_scale != 1.0:
         env = gym.wrappers.TransformReward(env, scale_reward)
-    return 
+    return env
