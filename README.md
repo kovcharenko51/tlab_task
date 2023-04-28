@@ -1,1 +1,1 @@
-# tlab_task
+A repo for Tinkoff Lab's test task in Offline Reinforcement learning
